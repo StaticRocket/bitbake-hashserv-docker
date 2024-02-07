@@ -57,8 +57,6 @@ services:
     volumes:
       - ./mariadb/config:/config
       - /var/run/mysqld
-    ports:
-      - 3306:3306
     restart: unless-stopped
     network_mode: none
   hashserv:
