@@ -16,7 +16,7 @@ using docker-compose and the internal sqlite engine:
 ---
 services:
   hashserv:
-    image: ghcr.io/staticrocket/bitbake-hashserv
+    image: ghcr.io/staticrocket/bitbake-hashserv-docker
     container_name: hashserv
     environment:
       - HASHSERVER_BIND=:8686
@@ -62,7 +62,7 @@ services:
     restart: unless-stopped
     network_mode: none
   hashserv:
-    image: ghcr.io/staticrocket/bitbake-hashserv
+    image: ghcr.io/staticrocket/bitbake-hashserv-docker
     container_name: hashserv
     environment:
       - HASHSERVER_BIND=:8686
