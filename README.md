@@ -83,3 +83,11 @@ services:
     restart: unless-stopped
 ```
 
+## References
+
+Here are some useful articles regarding s6, since documentation around writing
+services is a little sparse:
+
+  - https://forum.level1techs.com/t/easy-to-follow-beginner-guide-on-s6-starter-pack
+  - https://github.com/just-containers/s6-overlay#writing-a-service-script
+  - https://skarnet.org/software/s6/servicedir.html
