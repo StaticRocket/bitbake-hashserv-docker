@@ -22,4 +22,6 @@ RUN pip install asyncmy && pip cache purge
 
 RUN git clone https://git.openembedded.org/bitbake
 
+EXPOSE 8585
+
 COPY root/ /

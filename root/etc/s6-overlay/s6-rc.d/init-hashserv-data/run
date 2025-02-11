@@ -1,6 +1,10 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
+# create directories
+mkdir -p \
+	/data/{hashserv,prserv}
+
 # permissions
 lsiown abc:abc \
 	/data \

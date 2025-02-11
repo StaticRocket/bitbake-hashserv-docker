@@ -22,6 +22,7 @@ services:
       - HASHSERVER_BIND=:8686
       - HASHSERVER_DB=/data/hashserv.db
       - HASHSERVER_LOG_LEVEL=INFO
+      - PRSERVER_ENABLED=1
       # - HASHSERVER_UPSTREAM=
       # - HASHSERVER_READ_ONLY=
       # - HASHSERVER_DB_USERNAME=

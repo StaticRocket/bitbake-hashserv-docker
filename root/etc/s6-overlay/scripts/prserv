@@ -1,0 +1,22 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+case "$1" in
+	"start")
+		;;
+	"stop")
+		;;
+	*)
+		printf '%s\n' "Invalid command!"
+		exit 1
+esac
+
+if [ "$PRSERVER_ENABLED" = "1" ]
+then
+	printf '%s\n' "Package revision server: ${1}"
+	cd /data/prserv || exit 1
+	exec \
+		s6-setuidgid abc /bitbake/bin/bitbake-prserv "--${1}"
+else
+	printf '%s\n' "Package revision server: skip"
+fi
