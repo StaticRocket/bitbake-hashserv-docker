@@ -20,7 +20,8 @@ RUN apt-get update \
 
 RUN pip install asyncmy && pip cache purge
 
-RUN git clone https://git.openembedded.org/bitbake
+RUN git clone https://git.openembedded.org/bitbake --single-branch --progress \
+	--branch master
 
 EXPOSE 8585
 
