@@ -1,5 +1,7 @@
 FROM ghcr.io/linuxserver/baseimage-ubuntu:jammy
 
+ARG BB_VERSION="master"
+
 RUN apt-get update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 		git \
@@ -21,7 +23,7 @@ RUN apt-get update \
 RUN pip install asyncmy && pip cache purge
 
 RUN git clone https://git.openembedded.org/bitbake --single-branch --progress \
-	--branch master
+	--branch "${BB_VERSION}"
 
 EXPOSE 8585
 
