@@ -21,6 +21,12 @@ jobs:
       contents: read
       packages: write
 
+    strategy:
+      matrix:
+        bb-version:
+          - master
+          - 2.8
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,6 +47,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: type=raw,value=${{ matrix.bb-version }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -51,3 +58,5 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha
+          build-args: |
+            BB_VERSION=${{ matrix.bb-version }}
